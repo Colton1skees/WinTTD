@@ -30,5 +30,6 @@
 #include <map>
 #include <iterator>
 
+using u64 = unsigned long long;
 
 #endif //PCH_H
