@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -78,11 +78,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\colton\source\repos\vcpkg\installed\x64-windows-static\include;C:\Users\colton\source\repos\vcpkg\installed\x64-windows\include;include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\colton\source\repos\vcpkg\installed\x64-windows-static\lib;C:\Users\colton\source\repos\vcpkg\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\colton\source\repos\vcpkg\installed\x64-windows-static\include;C:\Users\colton\source\repos\vcpkg\installed\x64-windows\include;C:\Users\colton\source\repos\Triton\Dependencies\z3-4.8.9-x64-win\include;C:\Users\colton\source\repos\Triton\Dependencies\boost_1_73_0;C:\Users\colton\source\repos\Triton\src\libtriton\includes;include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\colton\Downloads\triton_binaries;C:\Users\colton\source\repos\vcpkg\installed\x64-windows-static\lib;C:\Users\colton\source\repos\vcpkg\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>include;C:\Users\colton\source\repos\Triton\src\libtriton\includes;C:\Users\colton\source\repos\Triton\Dependencies\boost_1_73_0;C:\Users\colton\source\repos\Triton\Dependencies\z3-4.8.9-x64-win\include;C:\Users\colton\source\repos\vcpkg\installed\x64-windows\include;C:\Users\colton\source\repos\vcpkg\installed\x64-windows-static\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\colton\source\repos\vcpkg\installed\x64-windows\lib;C:\Users\colton\source\repos\vcpkg\installed\x64-windows-static\lib;C:\Users\colton\Downloads\triton_binaries;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -145,6 +147,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -152,12 +155,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>triton.lib;detours.lib;capstone.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\addresses.h" />
     <ClInclude Include="include\internal_structures.h" />
     <ClInclude Include="include\pch.h" />
+    <ClInclude Include="include\triton_tainter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\addresses.cpp" />
@@ -169,6 +174,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\triton_tainter.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

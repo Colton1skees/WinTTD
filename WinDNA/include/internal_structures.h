@@ -76,7 +76,7 @@ namespace Internals
 		int32_t insnCountLimit; //0x00C0
 		int32_t computedLimit; //0x00C4
 		int32_t computedLimit2; //0x00C8
-		char pad_00CC[1]; //0x00CC
+		uint8_t bIsReadingMem; //0x00CC
 		uint8_t bIsExecutingCallback; //0x00CD
 		char pad_00CE[2]; //0x00CE
 		void* callbackReplayMemoryFetch; //0x00D0
@@ -93,6 +93,7 @@ namespace Internals
 		char pad_52A8[24]; //0x52A8
 		void* stlB; //0x52C0
 		char pad_52C8[760]; //0x52C8
+
 
 
 		virtual void SetClientTls(u64 tls);

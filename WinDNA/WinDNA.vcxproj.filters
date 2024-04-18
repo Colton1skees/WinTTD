@@ -11,9 +11,6 @@
     <Filter Include="include">
       <UniqueIdentifier>{0c4de131-032a-47db-8ade-1eb1350143c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="NewFilter1">
-      <UniqueIdentifier>{c343bec7-e5fa-48d9-abe0-42b8d9fa4f98}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\addresses.h">
@@ -23,6 +20,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\pch.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\triton_tainter.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
@@ -37,6 +37,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\triton_tainter.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
